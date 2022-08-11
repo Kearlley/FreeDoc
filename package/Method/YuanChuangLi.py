@@ -18,7 +18,7 @@ def Dump(html):
     title = Native.find_all("h1")
     #print(title)
     title2 = re.sub(keyPattern3, '', str(title)).split('[')[1].split(']')[0]
-    print(title2)
+    print("文件标题为:",title2)
     # a = Native.select('script[type="text/javascript"]')
     a1 = re.compile(r"pic: (.*?)}$", re.MULTILINE | re.DOTALL)  # index pic
     # a0 = re.compile(r"//[\s\S]*?\n",re.MULTILINE | re.DOTALL)
@@ -141,7 +141,7 @@ def RequestImageUrl(project_id, aid, view_token, preview_page):
     # taskPage = int(preview_page) + 1
     buf = []
     for page in range(1, preview_page, 6):
-        print("Url Getting... Now In ", str(page) + " -", str(page + 6))
+        print("连接获取中... 位于", str(page) + " -", str(page + 6))
         time.sleep(2)  # If to fast, can't get Url
         b1 = API.Request.RequestWebSite(
             "https://openapi.book118.com/getPreview.html"
@@ -157,5 +157,5 @@ def RequestImageUrl(project_id, aid, view_token, preview_page):
         urls = jsons['data']
         # print(urls)
         buf.append(urls)
-    print('Done.')
+    print('链接获取完成.')
     return buf

@@ -1,3 +1,6 @@
 /.idea/*
 /.git/*
 *.pyc
+main.spec
+/dist/*
+/build/*

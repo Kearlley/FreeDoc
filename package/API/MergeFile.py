@@ -1,11 +1,10 @@
 import os
 from PIL import Image  # 处理图片
 
-import API.Public
 
 
 def ToPDF(file_name):
-    path = API.Public.GetWorkPath() + '\\temp\\'
+    path = './temp/'
     name = file_name
     img_list = []  # 创建打开后的图片列表
     filename = os.listdir(path)

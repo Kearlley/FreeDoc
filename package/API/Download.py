@@ -1,12 +1,11 @@
 # 1. Download Files num, to cut url
 import requests
-import API.Public
 
 
 def SaveFile(Dict):
     page = 0
-    path = API.Public.GetWorkPath()
-    print("Download File Path In: ", path)
+    #path = API.Public.GetWorkPath()
+    #print("Download File Path In: ")
     for items in Dict:
         for item in items.values():
             # print(item)
@@ -14,10 +13,10 @@ def SaveFile(Dict):
             # print(page)
             filename = str(page) + '.png'
             rd = requests.get('https:' + item)
-            print('Now In Download: ', rd.url + ' Page: ', page)
+            print('当前真正下载: ', rd.url + ' 页数: ', page)
             try:
-                with open(path + '\\temp\\' + filename, 'wb') as temp:
+                with open('./temp/' + filename, 'wb') as temp:
                     temp.write(rd.content)
             except:
-                print("Download has ERROR! At Page:", page)
+                print("下载错误，页数为:", page)
     pass

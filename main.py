@@ -1,3 +1,5 @@
+import os
+
 import API.Request
 import API.Download
 import Method.YuanChuangLi
@@ -7,13 +9,19 @@ from Public import *
 
 
 def main():
+    try:
+        os.mkdir('./temp')
+    except:
+        pass
     StartInfo()
+    url = input("请键入你要下载的文档链接:")
     # print(API.Request.RequestWebSite("https://openapi.book118.com/getPreview.html?&project_id=1&aid=423296707&view_token=UBtcTIq@V8U3kwlXPT_HlrdCyv_rgeV7&page=5"))
     c1 = Method.YuanChuangLi.Dump(
         API.Request.RequestWebSite(
-            "https://max.book118.com/html/2022/0622/5133034111004244.shtm"  # Put Url
+            url
         )
     )
+    print('共计 %s 页' % c1[3])
     API.Download.SaveFile(
         Method.YuanChuangLi.RequestImageUrl(
             str(c1[0]),
@@ -23,8 +31,10 @@ def main():
         )
     )
     API.MergeFile.ToPDF(c1[5])
+
     pass
 
 
 if __name__ == '__main__':
     main()
+    time.sleep(5)
