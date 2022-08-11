@@ -11,10 +11,8 @@ class AC:
         if mode == 'https':
             return 'https://' + url
 
-
-# Only Website Url
 # mode = Url Use Request heard
-def StandardizationUrl(url, *mode):
+def StandardizationUrl(url):
     el = str(url).encode('utf-8').lower()  # Operation Encode and To be lower case
 
     if el.startswith('http://') or el.startswith('https://'):

@@ -1,5 +1,7 @@
 import API.Request
+import API.Download
 import Method.YuanChuangLi
+
 from Public import *
 
 
@@ -11,8 +13,7 @@ def main():
             "https://max.book118.com/html/2022/0622/5133034111004244.shtm"
         )
     )
-
-    Method.YuanChuangLi.RequestImageUrl(str(c1[0]),str(c1[1]),str(c1[2]),int(c1[4]))
+    API.Download.SaveFile(Method.YuanChuangLi.RequestImageUrl(str(c1[0]),str(c1[1]),str(c1[2]),int(c1[4])))
     pass
 
 

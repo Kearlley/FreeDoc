@@ -155,7 +155,7 @@ def RequestImageUrl(project_id, aid, view_token, preview_page):
         json_data = re.search(r'jsonpReturn\((.*?)\);', b1).group(1)
         jsons = json.loads(json_data)
         urls = jsons['data']
-        print(urls)
+        # print(urls)
         buf.append(urls)
     print('Done.')
     return buf

@@ -1,6 +1,8 @@
+import os
+
+
 def TestMain():
-    for page in range(1, 35, 6):  # stat,endpage+1,step
-        print(page)
+    print(os.path.split(os.path.realpath('.'))[0])  # 获取当前工作目录路径
     pass
 
 
