@@ -4,7 +4,7 @@ from PIL import Image  # 处理图片
 
 
 def ToPDF(file_name):
-    path = './temp/'
+    path = './'
     name = file_name
     img_list = []  # 创建打开后的图片列表
     filename = os.listdir(path)
@@ -25,5 +25,5 @@ def ToPDF(file_name):
     img_2 = img_list[0]
     img_open_list = img_list[1:]
     img_2.save(path + pdf_name, "PDF", resolution=100.0, save_all=True, append_images=img_open_list)
-    print('pdf文件已经保存在' + path + '目录下！')
+    print('pdf文件已经保存在当前目录下！')
     pass

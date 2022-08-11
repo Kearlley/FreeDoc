@@ -136,7 +136,7 @@ def Dump(html):
 #        return False, preview_page
 
 def RequestImageUrl(project_id, aid, view_token, preview_page):
-    print("Can Download Files: ",preview_page)
+    print("可以免费下载的页数: ",preview_page)
     # type(preview_page)
     # taskPage = int(preview_page) + 1
     buf = []
