@@ -10,7 +10,8 @@ from Public import *
 
 def main():
     try:
-        os.mkdir('./temp')
+        os.mkdir('.\\temp')
+        os.mkdir('.\\dist')
     except:
         pass
     StartInfo()
