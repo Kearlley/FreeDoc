@@ -2,10 +2,10 @@
 import requests
 
 
-def SaveFile(Dict):
+def SaveFiles(Dict):
     page = 0
-    #path = API.Public.GetWorkPath()
-    #print("Download File Path In: ")
+    # path = API.Public.GetWorkPath()
+    # print("Download File Path In: ")
     for items in Dict:
         for item in items.values():
             # print(item)
@@ -19,4 +19,16 @@ def SaveFile(Dict):
                     temp.write(rd.content)
             except:
                 print("下载错误，页数为:", page)
+    pass
+
+
+def SaveFile(url,name):
+    filename = name + '.pdf'
+    rd = requests.get(url)
+    print('当前正在下载:',rd.url)
+    try:
+        with open('.\\dist\\' + filename, 'wb') as temp:
+            temp.write(rd.content)
+    except:
+        print("下载失败")
     pass

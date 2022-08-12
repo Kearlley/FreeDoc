@@ -24,11 +24,11 @@ def ToPDF(file_name):
                 print(file)
     pdf_name = name + '.pdf'  # pdf文件名
     try:
-        os.remove(savepath + pdf_name)
+        os.remove(savepath + pdf_name)  # 如果有旧的文件就删除
     except:
         pass
     img_2 = img_list[0]
     img_open_list = img_list[1:]
     img_2.save(savepath + pdf_name, "PDF", resolution=100.0, save_all=True, append_images=img_open_list)
-    print('pdf文件已经保存在当前目录下！')
+    print('pdf文件已经保存在' + savepath + '目录下！')
     pass

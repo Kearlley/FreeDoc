@@ -18,11 +18,21 @@ def GetTime(mode):
             return "N/A"
 
 
+def AnalyzeURL(url):
+    if url.startswith('https://max.book118.com/'):
+        print('检测到为 原创力 链接')
+        return 0
+    elif url.startswith('https://xuanshu.hep.com.cn/'):
+        print('检测到为 高等教育出版社产品信息检索系统 链接')
+        return 1
+
+
+
 def StartInfo():
     print(
         """
 📕FreeDoc Download
-🎯目前支持: 原创力免费预览部分
+🎯目前支持: 原创力免费预览部分,高等教育出版社产品信息检索系统样章部分
 🕙当前时间: %s
 ----------------------------------
 """
