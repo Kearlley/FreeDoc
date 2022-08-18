@@ -1,6 +1,6 @@
 import os
 
-os.system("pyinstaller -F .\\main.py")
+os.system("pyinstaller main.spec")
 try:
     os.system("move .\\dist\\main.exe .\\dist\\FreeDoc-Windows.exe")
 except:

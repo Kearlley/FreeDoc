@@ -3,6 +3,7 @@
 ## 支持
 - 原创力免费预览部分(https://max.book118.com)
 - 高等教育出版社信息检索系统样章阅读部分(https://xuanshu.hep.com.cn/)
+- 百度文库(https://wenku.baidu.com/)
 ## 运行
 ```shell
 git clone https://github.com/Kearlley/FreeDoc.git

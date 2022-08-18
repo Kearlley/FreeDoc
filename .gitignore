@@ -1,7 +1,6 @@
 /.idea/*
 /.git/*
 *.pyc
-main.spec
 /dist/*
 /build/*
-Test.txt
+/Task/
