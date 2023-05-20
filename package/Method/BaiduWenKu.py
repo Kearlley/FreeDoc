@@ -3,10 +3,10 @@ import re
 from time import sleep
 
 from bs4 import BeautifulSoup
+from docx import Document
 from selenium import webdriver
 from selenium.webdriver.common.by import By
-from docx import Document
-from docx.shared import Pt
+
 from API import Request
 from API.Public import GetWorkPath
 

@@ -1,10 +1,9 @@
-import os
+import time
 
-import API.Request
 import API.Download
 import API.MergeFile
-
-from Method import YuanChuangLi, GDJYCBSCPXXJSXT, BaiduWenKu
+import API.Request
+from Method import YuanChuangLi, GDJYCBSCPXXJSXT
 from Public import *
 
 maekdirs = [
@@ -34,9 +33,9 @@ def main():
                     str(c1[1]),  # aid
                     str(c1[2]),  # view_token
                     int(c1[4])  # preview_page
-                )
+                ), 'pdf'
             )
-            API.MergeFile.ToPDF(c1[5])
+            API.MergeFile.TempToPDF(c1[5])
             # bufs.append(c1)
             pass
 
@@ -48,7 +47,8 @@ def main():
             )
             API.Download.SaveFile(
                 c2[1],  # URL
-                c2[0]  # title
+                c2[0],  # title
+                'pdf'  # Format
             )
             print('pdf文件已经保存在 ./dist/ 目录下！')
             pass
@@ -56,7 +56,7 @@ def main():
             cks = BaiduWenKu.ReadCookies()
             c3 = BaiduWenKu.Dump(
                 API.Request.HeaderRequest(
-                    url,cks
+                    url, cks
                 )
             )
             print('文档标题为:', c3[0])  # title
@@ -78,9 +78,11 @@ def main():
             )
             cb = input('请输入你想保存的Cookies所对应的数字: ')
             # webbrs = input('请输入你想使用的浏览器驱动{edge,firefox,chrome}: ')  # TODO
-            BaiduUsername = input('请输入你的百度账号的 手机/用户名/邮箱:')
-            BaiduPassword = input('请输入你的百度账号的 密码:')
-            BaiduWenKu.SaveCookies(BaiduUsername, BaiduPassword)
+            match cb:
+                case 1:
+                    BaiduUsername = input('请输入你的百度账号的 手机/用户名/邮箱:')
+                    BaiduPassword = input('请输入你的百度账号的 密码:')
+                    BaiduWenKu.SaveCookies(BaiduUsername, BaiduPassword)
         case 9999:  # Cookies
             CookiesInfo()
             pass
@@ -88,4 +90,4 @@ def main():
 
 if __name__ == '__main__':
     main()
-    time.sleep(10)  # Wait 10s Exit
+    time.sleep(15)  # Wait 15s Exit

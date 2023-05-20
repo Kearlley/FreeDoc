@@ -1,15 +1,13 @@
 import os
 from PIL import Image  # 处理图片
 
-import API.Public
 
-
-def ToPDF(file_name):
+def TempToPDF(file_name):
     savepath = '.\\dist\\'
     imagepath = '.\\temp\\'
     name = file_name
     img_list = []  # 创建打开后的图片列表
-    filename = os.listdir(imagepath)
+    filename = os.listdir('.\\temp\\')
     filess = sorted(filename, key=lambda x: int(x[0:-4]))
     for files in filess:
         if files.endswith('png'):
@@ -20,8 +18,8 @@ def ToPDF(file_name):
             img_list.append(img_open)  # 把打开的图片放入列表
             try:
                 os.remove(file)  # 删除图片
-            except:
-                print(file)
+            except IOError:
+                print(f' Remove {file} Err.')
     pdf_name = name + '.pdf'  # pdf文件名
     try:
         os.remove(savepath + pdf_name)  # 如果有旧的文件就删除

@@ -1,24 +1,8 @@
 # -*- coding: UTF-8 -*-
 import os
-import time
 
 # mode = Return Style
 from Method import BaiduWenKu
-
-
-def GetTime(mode):
-    NA = time.time()
-    match mode:
-        case 0:  # Native Time
-            return NA
-        case 1:  # Native Local Time
-            return time.localtime(NA)
-        case 2:
-            return time.strftime("%Y-%m-%d | %H:%M:%S")
-        case 3:
-            return time.strftime("%Y %a %b %d | %H:%M:%S")
-        case 4:
-            return "N/A"
 
 
 def AnalyzeURL(url):
@@ -38,14 +22,14 @@ def AnalyzeURL(url):
 
 
 def CookiesInfo():
-    list = []
+    _list = []
     try:
         if BaiduWenKu.ReadCookies() is not None:
-            list.append('百度')
-    except:
+            _list.append('百度')
+    except IOError:
         print('百度 Cookies 读取失败')
 
-    print("当前 保存的 Cookies 有:", list)
+    print("当前 保存的 Cookies 有:", _list)
     pass
 
 
@@ -53,7 +37,7 @@ def MakeBaseDir(dirs):
     for Dir in dirs:
         try:
             os.mkdir('.\\' + Dir)
-        except:
+        except IOError:
             pass
 
 
@@ -63,19 +47,15 @@ def StartInfo():
 ####################################
         FreeDoc Download
 ####################################
-
+     你可以直接输入链接来自动下载
 ___________________________________
 -目前支持: 
     -原创力免费预览部分
     -高等教育出版社产品信息检索系统样章部分
     -百度文库(Word文档) 
-    Tips: 如果下载不全请确认去除链接?后面的东西，如果依然不行请重新获取Cookies
--当前时间: %s
--你可以直接输入链接来自动下载
+     -Tips: 如果下载不全请确认去除链接?后面的东西，如果依然不行请重新获取Cookies
 ____________________________________
 -输入 9999 来 查看该软件保存的 Cookies
 -输入 9998 来 保存一些网站所需要的 Cookies
-
 """
-        % GetTime(2)
     )
