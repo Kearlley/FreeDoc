@@ -3,7 +3,8 @@
 ## 支持
 - 原创力免费预览部分(https://max.book118.com)
 - 高等教育出版社信息检索系统样章阅读部分(https://xuanshu.hep.com.cn/)
-- 百度文库(https://wenku.baidu.com/)
+- 百度文库-文档(https://wenku.baidu.com/)
+- 豆丁网(https://www.docin.com/)
 ## 提示
 - 目前版本(百度文库下载功能)需要去下载 **[msedgedriver](https://developer.microsoft.com/en-us/microsoft-edge/tools/webdriver/)**(在较下面可以看到) 来完成cookies获取操作
 - 请确保你所下载的 msedgedriver 的版本和浏览器一致，在下载好后请放在项目或编译结果同级的 driver 目录中
