@@ -4,9 +4,6 @@ from bs4 import BeautifulSoup
 
 import API.Request
 
-url = 'https://www.docin.com/p-3711178666.html'
-
-
 def Dump(url):
     pid = str(url).split('-')[1].split('.')[0]
     native = BeautifulSoup(API.Request.RequestWebSite('https://www.docin.com/p-3711178666.html'), "lxml")
