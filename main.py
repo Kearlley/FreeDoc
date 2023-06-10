@@ -3,7 +3,7 @@ import time
 import API.Download
 import API.MergeFile
 import API.Request
-from Method import YuanChuangLi, GDJYCBSCPXXJSXT
+from Method import YuanChuangLi, GDJYCBSCPXXJSXT, DouDing
 from Public import *
 
 maekdirs = [
@@ -33,7 +33,7 @@ def main():
                     str(c1[1]),  # aid
                     str(c1[2]),  # view_token
                     int(c1[4])  # preview_page
-                ), 'pdf'
+                ), 'https', 'png'
             )
             API.MergeFile.TempToPDF(c1[5])
             # bufs.append(c1)
@@ -72,6 +72,21 @@ def main():
                         title=c3[0]
                     )
             pass
+
+        case 3:
+            c4 = DouDing.Dump(url)
+            print(c4)
+            print('共计 %s 页' % c4[2])
+            l3 = DouDing.Method1(
+                c4[0],  # pid
+                c4[1],  # sid
+                c4[2],  # page
+            )
+            print(l3)
+            API.Download.SaveFiles(l3, 'http', 'png')
+            API.MergeFile.TempToPDF(c4[3])
+            pass
+
         case 9998:  # Save Cookies
             print(
                 '1. baidu',

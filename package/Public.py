@@ -15,6 +15,9 @@ def AnalyzeURL(url):
     elif url.startswith('https://wenku.baidu.com/'):
         print('检测到为 百度文库 链接')
         return 2
+    elif url.startswith('https://www.docin.com/'):
+        print('检测到为 豆丁网 链接')
+        return 3
     elif url.startswith('9998'):
         return 9998
     elif url.startswith('9999'):
@@ -54,6 +57,8 @@ ___________________________________
     -高等教育出版社产品信息检索系统样章部分
     -百度文库(Word文档) 
      -Tips: 如果下载不全请确认去除链接?后面的东西，如果依然不行请重新获取Cookies
+    -豆丁网
+     -Tips: 利用图片合成pdf的方法(有水印)
 ____________________________________
 -输入 9999 来 查看该软件保存的 Cookies
 -输入 9998 来 保存一些网站所需要的 Cookies
